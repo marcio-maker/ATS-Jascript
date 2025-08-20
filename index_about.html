@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Page</title>
+  <title>Sobre Nós</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
+      background: #fff;
     }
     header {
       background: #1e40af;
@@ -24,35 +25,82 @@
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 1rem;
+      margin: 0 0.5rem;
       font-size: 1rem;
     }
     nav a:hover {
       text-decoration: underline;
     }
     main {
-      max-width: 800px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 1.5rem;
     }
     section {
       margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      background: #f9fafb;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
     section h2 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
+      color: #1e40af;
+      text-align: center;
     }
     section p {
       font-size: 1rem;
+      text-align: center;
+    }
+    .plans {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .plan-card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .plan-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .plan-card h3 {
+      margin-bottom: 0.5rem;
+      color: #1e40af;
+    }
+    .plan-card p {
+      margin-bottom: 1rem;
+    }
+    .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #1e40af;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     footer {
       background: #333;
       color: white;
       text-align: center;
       padding: 1rem;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+      margin-top: 2rem;
     }
     @media (max-width: 600px) {
       header h1 {
@@ -77,12 +125,46 @@
       <a href="index_dashboard.html">Dashboard</a>
     </nav>
   </header>
+
   <main>
+    <!-- Sobre -->
     <section>
-      <h2>Sobre Nós</h2>
-      <p>Somos uma empresa fundada em 2020, focada em oferecer soluções práticas e inovadoras para nossos clientes. Nossa missão é simplificar a tecnologia para todos.</p>
+      <h2>Quem Somos</h2>
+      <p>Somos uma empresa fundada em 2020, dedicada a transformar a forma como pessoas e empresas lidam com recrutamento e gestão de talentos. Nossa missão é simplificar processos com tecnologia prática e acessível.</p>
+    </section>
+
+    <!-- Nossa Missão -->
+    <section>
+      <h2>Nossa Missão</h2>
+      <p>Fornecer soluções digitais inteligentes que otimizem o tempo de recrutadores e facilitem a vida de candidatos. Valorizamos inovação, agilidade e proximidade com nossos clientes.</p>
+    </section>
+
+    <!-- Planos -->
+    <section>
+      <h2>Adquira o Plano Ideal</h2>
+      <div class="plans">
+        <div class="plan-card">
+          <h3>Plano Básico</h3>
+          <p>Ideal para pequenas equipes</p>
+          <p class="price">R$ 49/mês</p>
+          <a href="index_dashboard.html" class="cta-button">Assinar</a>
+        </div>
+        <div class="plan-card">
+          <h3>Plano Profissional</h3>
+          <p>Recursos avançados e suporte completo</p>
+          <p class="price">R$ 99/mês</p>
+          <a href="index_dashboard.html" class="cta-button">Assinar</a>
+        </div>
+        <div class="plan-card">
+          <h3>Plano Empresarial</h3>
+          <p>Personalização total para grandes empresas</p>
+          <p class="price">Sob consulta</p>
+          <a href="index_dashboard.html" class="cta-button">Fale Conosco</a>
+        </div>
+      </div>
     </section>
   </main>
+
   <footer>
     <p>&copy; 2025 Minha Empresa. Todos os direitos reservados.</p>
   </footer>
