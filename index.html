@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    header {
+      background: #1e40af;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .hero, .benefits, .testimonials, .contact {
+      background: #e0f2fe;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .hero h2, .benefits h2, .testimonials h2, .contact h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero p, .benefits p, .testimonials p, .contact p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #1e40af;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .benefits .cta-button {
+      margin: 2rem 0; /* Aumenta o espaçamento vertical do botão na seção benefits */
+    }
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+    .benefit-card, .testimonial-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin: 0.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      flex: 0 0 100%;
+      max-width: 300px;
+    }
+    .benefit-card:hover, .testimonial-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .benefit-card h3, .testimonial-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .benefit-card span.icon, .testimonial-card span.icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .testimonial-card p {
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+    .testimonial-card span.author {
+      display: block;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .carousel-controls button {
+      background: #1e40af;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .carousel-controls button:hover {
+      background: #1e3a8a;
+    }
+    .carousel-controls button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .contact input, .contact textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    .contact button {
+      background: #1e40af;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .contact button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .social-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      color: #1e40af;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+    .social-links a:hover {
+      transform: scale(1.1);
+      color: #1e3a8a;
+    }
+    .social-links span.icon {
+      font-size: 1.2rem;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      nav a {
+        margin: 0 1rem;
+      }
+      .hero h2, .benefits h2, .testimonials h2, .contact h2 {
+        font-size: 2.2rem;
+      }
+      .hero p, .benefits p, .contact p {
+        font-size: 1.1rem;
+      }
+      .benefit-card, .testimonial-card {
+        flex: 0 0 30%;
+        max-width: 350px;
+      }
+      .carousel-track {
+        gap: 1rem;
+      }
+      .benefits .cta-button {
+        margin: 3rem 0; /* Mais espaço no botão na web */
+      }
+    }
+    @media (max-width: 767px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+      .hero h2, .benefits h2, .testimonials h2, .contact h2 {
+        font-size: 1.6rem;
+      }
+      .hero p, .benefits p, .contact p {
+        font-size: 0.9rem;
+      }
+      .benefit-card span.icon, .testimonial-card span.icon {
+        font-size: 1.5rem;
+      }
+      .social-links span.icon {
+        font-size: 1rem;
+      }
+      .benefits .cta-button {
+        margin: 1.5rem 0; /* Menos espaço no botão no mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Minha Empresa</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index_about.html">Sobre</a>
+      <a href="index_dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h2>Bem-vindo à Nossa Plataforma</h2>
+      <p>Descubra soluções simples e eficazes para suas necessidades.</p>
+      <a href="index_dashboard.html" class="cta-button">Acesse o Dashboard</a>
+    </section>
+
+    <section class="benefits">
+      <h2>Benefícios do ATS</h2>
+      <p>Por que escolher nosso sistema de gerenciamento de candidatos?</p>
+      <div class="carousel">
+        <div class="carousel-track" id="benefits-carousel">
+          <div class="benefit-card">
+            <span class="icon">💼</span>
+            <h3>Gestão Simplificada</h3>
+            <p>Organize candidatos, acompanhe status e gerencie currículos em um só lugar.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="icon">🔍</span>
+            <h3>Filtros Avançados</h3>
+            <p>Encontre rapidamente os melhores talentos com filtros por status, posição e habilidades.</p>
+          </div>
+          <div class="benefit-card">
+            <span class="icon">📥</span>
+            <h3>Exportação e Importação</h3>
+            <p>Salve e restaure dados com facilidade usando exportação/importação em JSON.</p>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button onclick="moveCarousel('benefits-carousel', -1)" aria-label="Anterior">←</button>
+          <button onclick="moveCarousel('benefits-carousel', 1)" aria-label="Próximo">→</button>
+        </div>
+      </div>
+      <a href="index_dashboard.html" class="cta-button">Experimente o ATS Agora</a>
+    </section>
+
+    <section class="testimonials">
+      <h2>Depoimentos</h2>
+      <p>O que nossos usuários dizem sobre o ATS:</p>
+      <div class="carousel">
+        <div class="carousel-track" id="testimonials-carousel">
+          <div class="testimonial-card">
+            <span class="icon">👤</span>
+            <p>"O ATS transformou nosso processo de recrutamento, economizando horas de trabalho manual!"</p>
+            <span class="author">Ana Costa, Gerente de RH</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="icon">👤</span>
+            <p>"A interface é intuitiva e os filtros ajudam a encontrar o candidato certo rapidamente."</p>
+            <span class="author">João Silva, Recrutador</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="icon">👤</span>
+            <p>"Exportar e importar dados foi um divisor de águas para nossa equipe."</p>
+            <span class="author">Maria Santos, Coordenadora de Talentos</span>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button onclick="moveCarousel('testimonials-carousel', -1)" aria-label="Anterior">←</button>
+          <button onclick="moveCarousel('testimonials-carousel', 1)" aria-label="Próximo">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Entre em Contato</h2>
+      <p>Envie sua mensagem ou siga-nos nas redes sociais.</p>
+      <form>
+        <input type="text" placeholder="Nome" required />
+        <input type="email" placeholder="E-mail" required />
+        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank">
+          <span class="icon">📘</span> Facebook
+        </a>
+        <a href="https://twitter.com" target="_blank">
+          <span class="icon">🐦</span> Twitter
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+          <span class="icon">💼</span> LinkedIn
+        </a>
+        <a href="https://instagram.com" target="_blank">
+          <span class="icon">📷</span> Instagram
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Minha Empresa. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Função para controlar o carrossel
+    function moveCarousel(carouselId, direction) {
+      const track = document.getElementById(carouselId);
+      const cards = track.children;
+      const cardWidth = cards[0].offsetWidth + 16; // Largura do card + margem
+      let currentPosition = parseInt(track.dataset.position || 0);
+      const maxPosition = cards.length - (window.innerWidth >= 768 ? 3 : 1);
+
+      currentPosition += direction;
+      if (currentPosition < 0) currentPosition = 0;
+      if (currentPosition > maxPosition) currentPosition = maxPosition;
+
+      track.dataset.position = currentPosition;
+      track.style.transform = `translateX(-${currentPosition * cardWidth}px)`;
+
+      // Atualiza estado dos botões
+      const prevButton = track.nextElementSibling.children[0];
+      const nextButton = track.nextElementSibling.children[1];
+      prevButton.disabled = currentPosition === 0;
+      nextButton.disabled = currentPosition === maxPosition;
+    }
+
+    // Função para carrossel automático
+    function autoCarousel(carouselId) {
+      const track = document.getElementById(carouselId);
+      const cards = track.children;
+      const maxPosition = cards.length - (window.innerWidth >= 768 ? 3 : 1);
+      let currentPosition = parseInt(track.dataset.position || 0);
+
+      currentPosition++;
+      if (currentPosition > maxPosition) currentPosition = 0; // Volta ao início
+
+      track.dataset.position = currentPosition;
+      moveCarousel(carouselId, 0); // Atualiza posição
+    }
+
+    // Efeitos de hover para cards, links e botões
+    document.querySelectorAll('.benefit-card, .testimonial-card, .social-links a, .cta-button, .contact button').forEach(element => {
+      element.addEventListener('mouseenter', () => {
+        element.style.transform = element.classList.contains('social-links') ? 'scale(1.1)' : 'scale(1.05)';
+        element.style.boxShadow = element.classList.contains('social-links') ? 'none' : '0 4px 8px rgba(0,0,0,0.2)';
+      });
+      element.addEventListener('mouseleave', () => {
+        element.style.transform = 'scale(1)';
+        element.style.boxShadow = element.classList.contains('benefit-card') || element.classList.contains('testimonial-card') ? '0 2px 4px rgba(0,0,0,0.1)' : 'none';
+      });
+    });
+
+    // Inicializa carrosséis e define intervalo automático
+    ['benefits-carousel', 'testimonials-carousel'].forEach(carouselId => {
+      const track = document.getElementById(carouselId);
+      track.dataset.position = 0;
+      moveCarousel(carouselId, 0);
+      // Avança automaticamente a cada 5 segundos
+      setInterval(() => autoCarousel(carouselId), 5000);
+    });
+  </script>
+</body>
+</html>
