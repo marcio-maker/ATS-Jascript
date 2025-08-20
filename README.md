@@ -140,4 +140,7 @@ Carrossel: Para recursos avançados (ex.: pausa no hover, autoplay mais configur
 Contato
 Para suporte ou sugestões, envie uma mensagem via formulário na página inicial ou entre em contato pelas redes sociais (links a serem atualizados).
 
+
+https://github.com/marcio-maker/ATS-Jascript/blob/main/QRCode_F%C3%A1cil.png?raw=true
+
 © 2025 Minha Empresa. Todos os direitos reservados.
